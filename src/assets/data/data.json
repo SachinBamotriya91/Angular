@@ -1,0 +1,28 @@
+{
+  "signupUser": [
+    {
+      "id": 3,
+      "firstName": "Nilesh",
+      "lastName": "Songra",
+      "email": "nilesh@gmail.com",
+      "mobile": "19812981",
+      "password": "nilesh@123"
+    },
+    {
+      "id": 4,
+      "firstName": "Aqib",
+      "lastName": "Khan",
+      "email": "aqib@gmail.com",
+      "mobile": "992101812",
+      "password": "aqib@123"
+    },
+    {
+      "id": 5,
+      "firstName": "Aakash",
+      "lastName": "Patel",
+      "email": "aakash@gmail.com",
+      "mobile": "2929917",
+      "password": "aakash@123"
+    }
+  ]
+}

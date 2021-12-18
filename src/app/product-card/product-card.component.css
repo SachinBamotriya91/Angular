@@ -1,0 +1,32 @@
+
+.item img {
+    width: 64px;
+}
+
+.item {
+    margin: 0px 15px;
+    text-align: center;
+}
+
+.item:hover{
+    color:rgb(233, 10, 10);
+}
+.card {
+    padding: 20px;
+    margin: 50px;
+}
+
+.card img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.card img:hover {
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+h6{
+    font-size: 15px;
+}

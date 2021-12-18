@@ -1,0 +1,110 @@
+<ng-container *ngIf="products.length !=0">
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Sr.No</th>
+                            <th>Product Name</th>
+                            <th>Product Image</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of products; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{item.title}}</td>
+                            <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
+                            <td style="width: 25%;">{{item.description}}</td>
+                            <th style="width: 12%;">{{item.price |currency:'INR' }}</th>
+                            <td style="width: 12%;">1</td>
+                            <td style="width: 12%;">{{item.price |currency:'INR'}}</td>
+                            <td>
+                                <button (click)="deleteProduct(item)" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" ></td>
+                            <td><button   (click)="deleteCart()" class="btn btn-danger">Empty Cart</button></td>
+                            <td><button routerLink="/product" class="btn btn-primary">Shop More</button></td>
+                            <td><button class="btn btn-outline-dark" (click)="openModal(template)">Checkout</button>
+                            </td>
+                            <td><strong>Grand Total : {{grandTotal |currency:'INR'}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="products.length ==0">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">My Cart</h5>
+        </div>
+        <div class="center">
+            <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
+                alt="">
+            <h4>Your cart is empty!</h4>
+            <h6>Add item to it now</h6>
+            <button routerLink="/product" class="btn btn-primary" style="margin-bottom:90px">Shop Now</button>
+        </div>
+    </div>
+</ng-container>
+
+
+
+
+
+
+
+
+
+<!--    Checout Form-->
+
+
+<ng-template #template>
+
+    <div class="container p-0">
+        <div class="card px-4">
+            <p class="h8 py-3">Payment Details</p>
+            <div class="row gx-3">
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">Person Name</p> <input class="form-control mb-3" type="text"
+                            placeholder="Name" value="">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">Card Number</p> <input class="form-control mb-3" type="text"
+                            placeholder="1234 5678 435678">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">Expiry</p> <input class="form-control mb-3" type="text"
+                            placeholder="MM/YYYY">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">CVV/CVC</p> <input class="form-control mb-3 pt-2 " type="password"
+                            placeholder="***">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="btn btn-secondary mb-3"> <span class="ps-3">Pay ${{grandTotal}}</span> <span
+                            class="fas fa-arrow-right"></span> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

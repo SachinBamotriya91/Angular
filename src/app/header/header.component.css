@@ -1,0 +1,17 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+.search-icon {
+    position: absolute;
+    z-index: 10;
+    right: 59%;
+    top: 20px;
+    color: blue;
+}
+
+.bg-light {
+    background-color: #c6dbdf !important;}
+.nav-link:hover{
+font-size: 10px;
+}
+.navbar-brand:hover{
+    font-size: 15px;
+}

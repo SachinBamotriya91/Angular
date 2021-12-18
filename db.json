@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 3,
+      "firstName": "Nilesh",
+      "lastName": "Songra",
+      "email": "nilesh@gmail.com",
+      "mobile": "19812981",
+      "salary": "89002"
+    },
+    {
+      "id": 4,
+      "firstName": "Aqib",
+      "lastName": "Khan",
+      "email": "aqib@gmail.com",
+      "mobile": "992101812",
+      "salary": "20011"
+    },
+    {
+      "id": 5,
+      "firstName": "Aakash",
+      "lastName": "Patel",
+      "email": "aakash@gmail.com",
+      "mobile": "2929917",
+      "salary": "9201"
+    },
+    {
+      "id": 1,
+      "firstName": "dsd",
+      "lastName": "ddfa",
+      "email": "fdfda",
+      "mobile": "afa",
+      "salary": "sdsf"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

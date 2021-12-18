@@ -1,0 +1,141 @@
+
+<div class="input-group"  >
+    <input type="number" class="form-control" [(ngModel)]='searchById' placeholder="Search By Id" (keyup)='getUserById()' >
+    <input type="text"  class="form-control" [(ngModel)]='searchByName'  placeholder="Search By Name" (keyup)='getUserByName()'>
+  </div>
+  <table class="table mt-3"  style="border: #378891;">
+      <thead>
+          <tr>
+              <th scope="col">User ID</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email Id</th>
+              <th scope="col">Mobile Number</th>
+              <th scope="col">Password</th>
+
+              <th scope="col">Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let row of userData">
+              <td>{{row.userId}}</td>
+              <td>{{row.firstName}}</td>
+              <td>{{row.lastName}}</td>
+              <td>{{row.email}}</td>
+              <td>{{row.mobile}}</td>
+              <td>{{row.password}}</td>
+
+              <td>
+                  <button (click)="onEdit(row)"  type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"> Edit</button>
+                  <button class="btn bg-danger mx-3" (click)="deleteUser(row)"> Delete</button>
+  
+              </td>
+  
+          </tr>
+      </tbody>
+  </table>
+  
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #378891;">
+          <h5 class="modal-title" id="exampleModalLabel" style="font-size: 25px;">User Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="background-color: #378891;">
+          <form [formGroup]="formValue">
+            <div class="form-group">
+              <label for="exampleInputEmail1">User ID</label>
+              <input type="number" formControlName="userId" class="form-control" id="exampleInputEmail1">
+              <div class="text text-danger "
+              *ngIf="!userId?.valid && (userId?.dirty ||userId?.touched)">
+              <div [hidden]="!userId?.errors?.required">
+                User Id is required
+              </div>
+              <div [hidden]="!userId?.errors?.pattern">
+                Please Enter 3 digit user id
+              </div>
+            </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">First Name</label>
+              <input type="text" formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div class="text text-danger "
+              *ngIf="!firstName?.valid && (firstName?.dirty ||firstName?.touched)">
+              <div [hidden]="!firstName?.errors?.required">
+                First Name is required
+              </div>
+              <div [hidden]="!firstName?.errors?.pattern">
+                Please Enter Valid FirstName
+              </div>
+            </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Last Name</label>
+              <input type="text" formControlName="lastName" class="form-control" id="exampleInputEmail1">
+              <div class="text text-danger"
+              *ngIf="!lastName?.valid && (lastName?.dirty ||lastName?.touched)">
+                <div [hidden]="!lastName?.errors?.pattern">
+                  Only characters are allowed
+                </div>
+                <div [hidden]="!lastName?.errors?.required">
+                  Last Name is required
+                </div>
+              </div>   
+            </div>
+  
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email Id</label>
+              <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div class="text text-danger"
+              *ngIf="!email?.valid && (email?.dirty ||email?.touched)">
+                <div [hidden]="!email?.errors?.required">
+                  email is required
+                </div>
+                <div [hidden]="!email?.errors?.email">
+                  invalid email id
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Mobile Number</label>
+              <input type="text" formControlName="mobile" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div class="text text-danger "
+              *ngIf="!mobile?.valid && (mobile?.dirty ||mobile?.touched)">
+              <div [hidden]="!mobile?.errors?.required">
+                Mobile Number is required
+              </div>
+              <div [hidden]="!mobile?.errors?.pattern">
+                Please Enter Valid Mobile Number
+              </div>
+            </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Password</label>
+              <input type="password" formControlName="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div class="text text-danger "
+              *ngIf="!password?.valid && (password?.dirty ||password?.touched)">
+              <div [hidden]="!password?.errors?.required">
+                Password Name is required
+              </div>
+              <div [hidden]="!password?.errors?.pattern">
+                Please Enter Valid Password
+              </div>
+            </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer"  style="background-color: #378891;">
+          <button type="button" id='cancel' class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" *ngIf="showAdd" (click)="createUser()" class="btn btn-primary">Add</button>
+          <button type="button"  *ngIf="showUpdate" (click)="updateUser()" class="btn btn-primary"  [disabled]="!formValue.valid">update</button>
+  
+        </div>
+      </div>
+    </div>
+  </div>
